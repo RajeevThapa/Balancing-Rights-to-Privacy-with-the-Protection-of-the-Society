@@ -1,0 +1,327 @@
+\chapter{Case Studies and Evaluation} \label{cha:Case studies and evaluation}
+% Introduction
+The following four case studies have been chosen to enable a systematic comparison of the emergence of privacy and security conflicts in various technological and regulatory contexts. Each case illustrates a different type of the digital risk scenario, starting with corporate cybersecurity incidents and followed by public sector health technologies, law-enforcement surveillance, and EU-level regulatory proposals. Table below provides a summary of the cases' objectives, types of datasets involved, the privacy-enhancing technologies (PETs) used or proposed, and, the main outcomes observed.
+
+% Method of Case Assessment
+A structured comparison framework was created for this analysis of the four case studies. Chapter 4 discusses how academic and regulatory sources were obtained, while the current chapter describes how they were analyzed. For each case study, an analytical template was used to evaluate it based an evaluation of: system’s purpose, datasets used, privacy risks, security vulnerabilities, application/missing of PETs, regulatory compliance, and societal impact.
+
+The findings and conclusions reported in the respective case discussions are based on two primary sources of verified information obtained from:
+
+\begin{itemize}
+    \item Verified information taken from regulatory reports, Academic studies, and Technical documentations.
+    \item Plus, the author’s own analytical interpretation connecting the identified sources of verified information with the central focus of this research project (i.e., the equilibrium between privacy and security).
+\end{itemize}
+
+This approach ensures that case evaluations are based on documented facts, while at the same time providing a critical, research based assessment of how each scenario shows the balance between privacy and security.
+
+  \begin{figure} [H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{figures/Overview(1).png}
+        \caption{Comparative Overview: Purpose, Datasets, PETs Used, and Outcome}
+        \label{fig:Overview}
+    \end{figure}
+
+\noindent
+These cases have been selected as a set to represent the entire range of privacy–security challenges in modern digital systems. The British Airways breach provides an example of a private-sector security failure, where insufficient technical safeguards led to a direct violation of individual privacy. The COVID-19 contact-tracing apps are a case of a public-health security measure that has been able to successfully deploy privacy-enhancing technologies in order to preserve user trust. Facial Recognition for law enforcement is a case that illustrates the societal and ethical concerns of surveillance technologies that are employed by the government. The EU Chat Control (CSAR) proposal, in addition to these, extends the debate to the regulatory domain thus showing how forced scanning and lessened encryption can lead to confidentiality and fundamental rights being at risk at a systemic level. In combination, these cases provide an analytically grounded and well-balanced means of exploring how technical, regulatory, and normative interventions need to be coordinated not only for societal security but also for safeguarding individual privacy.
+\\
+
+\noindent
+\section{Case Study 1: British Airways 2018 Data Breach}
+\noindent
+\textbf{Description / Facts}\vspace{0.2cm}
+\\
+\noindent
+From June to September 2018, British Airways (BA) was the victim of a cyberattack, during which their website was infected with malicious code that redirected users to a fake domain. As a result, the personal and financial data of about 380,000 customers were taken. The UK Information Commissioner's Office (ICO) investigation revealed that BA did not take sufficient security measures as required by Articles 5(1)(f) and 32 of the GDPR, and thus it initially proposed a fine of £183.39 million, which was later lowered to £20 million \cite{edpb2019} \cite{cliffordchance2020}. \vspace{0.2cm} 
+
+During the technical investigations, it has been established that the incident was a Magecart supply-chain attack that resulted in the contamination of a third-party JavaScript library \cite{portswigger2019}.
+\cite{wired2019} \\ 
+
+\noindent
+\textbf{Stakeholders Analysis} \vspace{0.2cm}
+\begin{itemize}
+    \item Individuals: customers whose names, addresses, payment card information, and booking details were exposed.
+    \item Organization: British Airways (the data controller).
+    \item Regulators: Information Commissioner’s Office (ICO).
+    \item Society: general public relying on secure airline services; global travel security expectations. \\
+\end{itemize}
+\noindent
+\textbf{Privacy Risks / Data Protection Issues} \vspace{0.2cm}
+\noindent
+\begin{itemize}
+    \item Exfiltrated data included sensitive personal and financial data (names, emails, credit card numbers, booking details).
+    \item GDPR classification: personal data, sensitive to financial fraud risk.
+    \item Rights impacted: confidentiality, data minimization principles, security of processing. \\
+\end{itemize}
+
+\noindent
+\textbf{Security / Operational Issues} \vspace{0.2cm}
+\begin{itemize}
+    \item Attack vector: third-party JavaScript (Magecart) compromised the checkout page.
+    \item Detection: breach persisted for months before identification.
+    \item Operational trade-offs: limited monitoring of third-party scripts vs user convenience and website performance \cite{securonix2018}. \\
+\end{itemize}
+
+\noindent
+\textbf{Technical, Regulatory, and Normative Measures Used / Missing} \vspace{0.2cm}
+\begin{itemize}
+    \item Technical: Lacked adequate third-party script controls; encryption of cardholder data was in place but did not fully mitigate compromise.
+    \item Regulatory: GDPR obligations for technical measures (Article 32) were unmet; incident reporting (Article 33) complied eventually.
+    \item  Normative: Public notification delayed; initial communication limited; trust erosion observed. \\
+\end{itemize}
+
+\noindent
+\textbf{Assessment} \vspace{0.2cm}
+\\
+\noindent
+While British Airways was more concerned with the operational efficiency of their website (to allow customers to book flights), data protection was not given the necessary attention. Consequently, the privacy of individuals was breached. After the breach, regulators took the necessary steps to intervene in the situation by imposing fines and penalties as a form of holding the company accountable and restoring some degree of equilibrium. \\
+
+% \noindent
+% \textbf{Lessons and Recommendations} \vspace{0.2cm}
+
+% % \noindent
+% % \begin{itemize}
+% %     \item Technical: Implement rigorous third-party vendor monitoring, continuous security audits, intrusion detection systems.
+% %     \item Regulatory: Proactively maintain DPIAs, ensure incident reporting thresholds and timelines are robust.
+% %     \item Communication: Transparent customer notifications, clear remedial measures, and public trust-building. \\
+% % \end{itemize}
+
+\section{Case Study 2: COVID-19 Contact-Tracing Apps}
+\noindent
+\textbf{Description / Facts}\vspace{0.2cm}
+\\
+\noindent
+During the COVID-19 pandemic, mobile contact-tracing apps were deployed to track potential virus exposure. Apple/Google Exposure Notification System (ENS) used Bluetooth proximity data with ephemeral IDs to protect user privacy. Apps were deployed globally with varying architectures: decentralised (where data resided on the users' devices) vs centralised (where data was handled by the government servers). App usage differed between countries because people had different levels of concern about privacy, trust in authorities, and confidence in how openly the apps were managed and regulated\cite{apple_covid19} \cite{kim2020digital}. \vspace{0.2cm}
+
+\noindent
+\textbf{Stakeholders Analysis} \vspace{0.2cm}
+\begin{itemize}
+    \item Individuals: citizens installing apps; exposure notifications affected personal decisions.    
+    \item Organizations: health authorities, app developers, Google \& Apple.
+    \item Regulators: Data Protection Authorities (DPAs), European GDPR supervisory authorities.
+    \item Society: public health authorities and broader community seeking epidemic control.\\
+\end{itemize}
+\noindent
+\textbf{Privacy Risks / Data Protection Issues} \vspace{0.2cm}
+\noindent
+\begin{itemize}
+    \item Bluetooth proximity identifiers can potentially be linked to individuals, allowing for re-identification and tracking of contacts.
+    \item GDPR concerns: lawful processing, purpose limitation, data minimization, data retention.
+    \item Exceeding necessity/proportionality: collecting more data than needed or using it beyond the public-health purpose can violate individuals’ rights \\
+\end{itemize}
+
+\noindent
+\textbf{Security / Operational Issues} \vspace{0.2cm}
+\begin{itemize}
+    \item Centralized models at higher risk of misuse or data breach.
+    \item Decentralized ENS reduced linkage but limited analytics\\
+\end{itemize}
+
+\noindent
+\textbf{Technical, Regulatory, and Normative Measures Used / Missing} \vspace{0.2cm}
+\begin{itemize}
+    \item Technical: ENS implemented decentralized identifiers, ephemeral keys, minimal personal data.
+    \item Regulatory: DPIAs conducted in several EU countries; GDPR compliance monitored.
+    \item Normative: Transparency reports published; user consent and voluntary uptake emphasized. \\
+\end{itemize}
+
+\noindent
+\textbf{Assessment} \vspace{0.2cm}
+\\
+\noindent
+Most of the national implementations managed to successfully turn towards designs that were considerate of privacy while they were still able to fulfill the necessary public health roles. The decentralized ENS option together with PETs illustrated that it was possible to protect the data as well as the health of the users at the same time. The main factor, however, for the success of the various solutions was not the technology used but rather the way that the public was communicated with, the transparency and trust in the institutions. In places where these were at a high level, the uptake and the effect were also higher. \\
+
+% \noindent
+% \textbf{Lessons and Recommendations} \vspace{0.2cm}
+
+% \noindent
+% \begin{itemize}
+%     \item Technical: Use PETs (ephemeral IDs, differential privacy) to minimize identifiable data.
+%     \item Regulatory: Clear DPIAs, retention policies, and supervision ensure GDPR alignment.
+%     \item Communication: Transparent, frequent messaging; open-source code releases to foster trust.\\
+% \end{itemize}
+
+\section{Case Study 3: Facial Recognition for Law Enforcement}
+\noindent
+\textbf{Description / Facts}\vspace{0.2cm}
+\\
+\noindent
+Policing and border checks are using facial recognition technology, or FRT, more and more. The Danish Institute for Human Rights (DIHR) sees this as a possible violation of privacy and non-discrimination rights. They demand stricter regulation and even suggest that in some instances, the application of the technology could be temporarily suspended \cite{instmenneskerettigheder_ansigtsgenkendelse}. \vspace{0.2cm}
+
+According to the European Parliament Research Service (EPRS), the proposed EU AI Act deals with the issue of remote biometric identification by defining it as a high-risk operation or even an outright ban in the case of public places. The act classifies such activities as risky or prohibited when performed in public areas \cite{europarl2023_aiact}. \vspace{0.2cm}
+
+Amnesty International in 2021 raised some serious worries about this stuff. They point out how facial recognition and similar biometric surveillance tech can lead to biased mass monitoring. That kind of thing really steps on people's privacy and rights to equality \cite{amnesty2021_biometricban}. \\
+
+\noindent
+\textbf{Stakeholders Analysis} \vspace{0.2cm}
+\begin{itemize}
+    \item Individuals: general public, especially minorities.
+    \item Organizations: police departments, vendors providing FRT systems.
+    \item Regulators: national DPAs, European Commission, European Parliament.
+    \item Society: public safety, civil liberties, ethical governance of surveillance.\\
+\end{itemize}
+\noindent
+\textbf{Privacy Risks / Data Protection Issues} \vspace{0.2cm}
+\noindent
+\begin{itemize}
+    \item Biometric data is sensitive; risk of misidentification, profiling, and discrimination.
+    \item GDPR implications: special category processing requires lawful basis, proportionality, and oversight.
+    \item Potential chilling effects on assembly and public participation.\\
+\end{itemize}
+
+\noindent
+\textbf{Security / Operational Issues} \vspace{0.2cm}
+\begin{itemize}
+    \item Threats: algorithmic bias, false positives/negatives, data leakage.
+    \item Operational trade-offs: accuracy vs privacy, law enforcement efficiency vs individual rights.
+\end{itemize}
+
+\noindent
+\textbf{Technical, Regulatory, and Normative Measures Used / Missing} \vspace{0.2cm}
+\begin{itemize}
+    \item Technical: calls for bias-testing, algorithmic transparency
+    \item Regulatory: GDPR applies; AI Act may restrict high-risk FRT.
+    \item Normative: Transparency limited, public consultation often absent, ethical oversight varies by jurisdiction. \\
+\end{itemize}
+
+\noindent
+\textbf{Assessment} \vspace{0.2cm}
+\\
+\noindent
+Right now the setup leans toward keeping society safe in real ways. But it does not do enough to guard personal privacy or stick to solid ethical lines. We really need tougher rules to watch over all this. And tech fixes that keep privacy intact would help a lot too. \\
+
+\section{Case Study 4: The EU Chat Control Proposal (CSAR)}
+\noindent
+\textbf{Description /
+Facts}\vspace{0.2cm}
+\\
+The European Commission's Regulation to Prevent and Combat Child Sexual Abuse (CSAR), which was introduced in 2022, proposes mandatory detection, reporting, and removal of Child Sexual Abuse Material (CSAM) from digital communication systems \cite{EU2022CSARproposal}. The proposal will apply to messaging platforms, hosting services, interpersonal communication providers, app shops, and internet infrastructure actors \cite{Council2024ChatControl}. A primary feature of the proposal involves client-side scanning, which requires scanning messages, images, and metadata directly on user devices or immediately before encryption. Client side scanning is a key aspect of the concept, which requires messages, pictures, and metadata to be scanned directly on user devices or before encryption. This scanning aims to identify known CSAM, unknown CSAM, and "grooming" patterns. It uses technologies like perceptual hashing, machine learning classification, and behavioral pattern analysis. These components are technically vulnerable to evasion, poisoning, manipulation of hash lists, and model extraction.
+The proposal has generated significant debate due to its legal, technical, and social implications \cite{TechCrunch2024ChatControl}.
+\\
+
+\noindent
+\textbf{Stakeholder Analysis} \vspace{0.2cm}
+\begin{itemize}
+    \item European Commission: Supports mandatory scanning as a necessary tool to combat CSAM at scale. Seeks uniform EU wide obligations on communication providers.
+    \item Law Enforcement Agencies: Could be benefited operationally from automated detection. Increased volume of reports and earlier detection of CSAM distribution and grooming behaviors. 
+    \item Communication Service Providers : Must redesign the system architecture which includes integrating scanning engin on devices , maintain or distribute detection models, ensure reporting to EU anRisksd adapt encrypted messaging systems to accommodate scanning. New compliance and security risk also introduced due to adaption of new process. 
+    \item End users: Primary data subjects. Impacted by privacy intrusion, loss of confidentiality, false positives, and broader surveillance risks. Trust in communication systems likely declines.
+    \item Regulators (DPAs and ENISA): Must reconcile GDPR obligations with the mandatory scanning requirements under CSAR. Responsible for oversight, DPIAs, and enforcement.
+    \item Civil Society, Privacy Advocates, and Academics: Raise concerns about mass surveillance, proportionality, risks of function creep, and erosion of encrypted communications.
+\end{itemize}
+
+% \noindent
+% \\
+
+% \noindent
+% \\
+
+% \noindent 
+% \\
+
+% \noindent 
+
+% \\
+
+% \noindent 
+% \\
+
+\\
+
+\noindent
+\textbf{Privacy Risks and Data Protection Issues} \vspace{0.2cm}
+\noindent
+\begin{itemize}
+    \item Large Scale Content Inspection: Scanning occurs on personal devices without individualized suspicion. This constitutes generalized content surveillance inconsistent with GDPR principles of necessity and proportionality.
+    \item Compromised End to End Encryption: Client side scanning bypasses cryptographic protections by analyzing data before encryption. This undermines confidentiality for all users and weakens the security guarantees that protect communication privacy.
+    \item Profiling and Behavioral Analysis: Scanning systems collect metadata, content signals, model outputs, and behavioral indicators. These can be combined to infer sensitive characteristics. Research shows that metadata and algorithmic outputs can reveal behavioral routines even under encryption \cite{Breyer2025SurveyYouthChatControl} \cite{EUParliament2025ChatControlQuestion}.
+    \item Function Creep : Once scanning infrastructure exists, it could be extended to other categories (political content, extremism).
+    \item Children’s Rights and Autonomy: A Surveys by YouGov among ten EU countries involving 10,265 citizens show many people(73 percent rejection in the age group 18-24) oppose scanning \cite{Breyer2025SurveyYouthChatControl}
+\end{itemize}
+% \\
+
+% \noindent
+
+% \\
+
+% \noindent 
+% \\
+
+% \noindent
+% \\
+
+% \noindent
+% \\
+
+\noindent
+\textbf{Security and Operational Issues} \vspace{0.2cm}
+\noindent
+\begin{itemize}
+    \item Increased Attack Surface: Distributing scanning models, hash lists, and classifiers to millions of client devices creates new entry points. Hintersdorf et al. show that client side scanning engines can be reverse engineered, poisoned, or manipulated \cite{hintersdorf2022clientside}.
+    \item Model Poisoning and Hash Manipulation: Adversaries can craft inputs to evade detection or trigger false positives. Attackers may poison model update channels or exploit vulnerabilities in scanning algorithms.
+    \item High Value Targets: Scanning databases and update systems become attractive to criminal actors and foreign intelligence agencies. Compromise of these systems would expose highly sensitive content and detection logic.
+    \item Operational Overload: Law enforcement may face unsustainable volumes of reports, including a high proportion of false positives. This operational burden can delay serious investigations.
+    \item Adversarial Adaptation: CSAM distributors quickly adopt evasion strategies such as encrypted containers, steganography, or niche platforms beyond EU jurisdiction. This limits long term effectiveness \cite{TechCrunch2024ChatControl}.
+\end{itemize}
+% \\
+
+% \noindent
+% \\
+
+% \noindent
+% \\
+
+% \noindent
+% \\
+
+% \noindent
+% \\
+
+\noindent
+\textbf{Technical, Regulatory, and Normative Measures Used or Missing} \vspace{0.2cm}
+\noindent
+\begin{itemize}
+    \item \textbf{Existing Measures}
+        \begin{itemize}
+            \item Hash Matching for known CSAM( Perceptual Hashing, NeuralHash, Microsoft’s PhotoDNA , FaceBook's PDQ): Well understood but limited to known content. Can be implemented securely when voluntary and server side.
+            \item EU Centre for Child Sexual Abuse: Proposed hub for coordination, model distribution, and reports aggregation.
+            \item Risk Based Framework: Providers must conduct risk assessments and apply mitigation measures.
+        \end{itemize}
+\end{itemize}
+
+\noindent
+\textbf{Missing or Insufficient Measures}
+\noindent
+\begin{itemize}
+    \item Technical Measures Missing
+        \begin{itemize}
+            \item Technical safeguards: No robust guarantee for secure update channels, no guarantee that scanning models are transparent / auditable.
+            \item Legal limits: Insufficient clarity on necessity and proportionality, limited public oversight, weak redress for users flagged.
+            \item Transparency:Lack of detailed clear transparency reporting obligations (e.g., how many false positives, how scanning decisions are made).
+            \item Normative participation: Limited democratic deliberation, insufficient involvement of civil society in defining scanning scope.
+            \item Encryption protections: The proposal does not fully guarantee that encryption will remain strong after scanning infrastructure is introduced.
+        \end{itemize}
+\end{itemize}
+
+\noindent
+\textbf{Assessment} \vspace{0.2cm}
+\noindent
+\begin{itemize}
+    \item Legitimacy of Purpose: The goal of preventing child abuse is legitimate and vital. However, the Client side scanning risks violating privacy rights. It will change the default privacy architecture by turning end-user devices into inspection points. This redesign introduces a structural risk because private messages are no longer recognized as confidential by default. 
+    \item Proportionality:From a data protection standpoint, mandatory scanning of all users is not clearly proportionate. The risk of widespread intrusion seems to outweigh the benefit of detecting some CSAM.
+    \item Security trade-offs: Client side scanning increases the overall attack surface. Deploying detector binaries, perceptual hash lists, or model weights to millions of devices and providing update channels creates new high value targets. Research demonstrates model poisoning, hash collision attacks, and update channel compromise as realistic threats. Compromised detection infrastructure can be weaponized to expose private content or to blind specific accounts \cite{hintersdorf2022clientside} .
+    \item Long term risk and function creep: Function creep is the historical tendency for tools introduced for one narrow purpose to be repurposed for others. The infrastructure and data artefacts needed for CSAM detection are the same artifacts that could be adapted to detect political speech, extremism, or other content categories.
+    \item User trust and behavioral effects: Public trust is fragile. Intrusive monitoring reduce willingness to use services and decreases candid communication. Trust declines when systems are opaque, when users cannot verify safeguards, or when they fear misuse by state or private actors. The practical effects include users switching to non-compliant or offshore services, which will increase usage of covert channels, and decreased collaboration with registered platforms. These behavioral responses may damage any operational benefits of scanning by shifting abuse to harder-to-observe environments.
+    \item Regulatory risk and legal contestation: Regulators have already raised concerns. The EDPB and EDPS published a combined opinion highlighting GDPR compatibility difficulties, the importance of strong necessity tests, and the risk to fundamental rights. National DPAs are likely to scrutinize specific implementations and issue injunctions or order considerable redesign \cite{EDPBEDPS2023Opinion}.
+
+\end{itemize}
+
+
+% \noindent
+% \textbf{Lessons and Recommendations} \vspace{0.2cm}
+
+% \noindent
+% \begin{itemize}
+%     \item Technical: implement algorithmic audits, bias testing, and data minimization.
+%     \item Regulatory: enforce GDPR special-category rules, expedite AI Act implementation.
+%     \item Communication: publish impact assessments and accuracy metrics to enhance transparency.\\
+% \end{itemize}

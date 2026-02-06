@@ -1,0 +1,124 @@
+\chapter{Technical Solutions and Standards} \label{cha:Technical solutions and standards}
+
+% Please, Include the following:
+% \\\\
+% privacy-by-design, PETs (differential privacy, SMC, homomorphic encryption), ISO/IEC standards, ENISA guidance
+ A balance between the right to privacy and the protection of society can be achieved with a combination of moral and legal approaches towards incorporating technology into a realm where the safeguarding of privacy becomes an integral part of technology. Today’s society relies on a technology system that handles a massive amount of personal information; therefore, it requires a strong set of technology that supports privacy protection. This chapter introduces four key pillars that can serve as the cornerstone for the technology of privacy protection: Privacy by Design, Privacy-Enhancing Technologies, ISO/IEC standards, and the guidance of the ENISA.
+
+\section{Privacy by Design}
+ Privacy by Design (PbD) is an approach that thinks ahead by embedding various privacy concerns into the design, development, and deployment of a system or service. As indicated in the AEPD guide to Privacy by Design, this method tries to prevent privacy violations from occurring in the first place, rather than trying to address them after they occur \cite{aepd2022}. There are seven key principles of Privacy by Design. Being proactive rather than reactive, Privacy as the Default, Privacy in design, Full Functionality, End-to-End Security, Visibility \& Transparency, and Respect Privacy.
+ 
+\subsection{Proactive rather than reactive}
+\noindent A proactive approach in system design is advocated that looks ahead to reduce the risk of privacy in the earlier stages of the process \cite{cavoukian2011privacy}. This approach shows ethical accountability in addressing systems in a way that causes less harm to individuals.\\
+
+\subsection{Privacy as Default Settings}
+\noindent Privacy by default is a concept that protects a user’s data automatically without any manual intervention. This means that systems will automatically store no more than the minimum data needed, store this data only as long as is needed, and will not allow access to this data unless authorized \cite{cavoukian2011privacy}.\\
+
+\subsection{Privacy in Design}
+\noindent According to this rule, privacy should not be an add-on that is applied to the system architecture and business processes once they are deployed\cite{cavoukian2011privacy}. Privacy protection must be integrated within technologies, processes and organization. Privacy as design eliminates the chances of a conflict in functionality, security and privacy requirements in the future.\\
+
+\subsection{Full Functionality}
+\noindent Full functionality defies the argument that privacy must be abandoned in favour of security or functionality of the system. It supports the idea of developing in a manner that ensures both privacy and functionality are achieved\cite{cavoukian2011privacy}. The organization can achieve this functionality using technological approaches that are privacy-enhancing, such as Privacy-Enhancing Technologies (PETs).\\
+
+\subsection{End-To-End Security}
+\noindent End-to-end security is also the assurance that personal data remains safe during its entire lifecycle, that is, collection and processing, storage, and deletion\cite{cavoukian2011privacy}. This encompasses technical security measures like encryption, access control and secure deletion. With the implementation of uniform security controls at each phase of data management, organizations minimize the vulnerability of unauthorized access and data leakage.\\
+
+\subsection{Visibility and Transparency}
+\noindent Visibility and transparency demand organizations to be very specific on the way personal data is gathered, how it is processed and how it is secured\cite{cavoukian2011privacy}. The systems and policies must be readable and verifiable by the users, regulators and other stake holders. Openness enhances accountability and confidence so that people can exercise their right to data protection and assure the legality and morality.\\
+
+\subsection{Respect Privacy}
+\noindent This principle prioritises the individuals in the data processing activities. The systems must be made in a way that they advocate user autonomy through meaningful decisions, well-understood consent options and easy access to exercise data subject rights\cite{cavoukian2011privacy}. Privacy is essential as it respects the user privacy and meets legal requirements in the framework of such regulations as GDPR as well as promotes ethical management of data and over-time confidence in online services.\\
+
+ \noindent Practically, PbD involves the use of technical and organizational measures from the very beginning of a given system’s life cycle. This involves the use of data minimization, pseudonymization, and access controls. Moreover, Privacy by Design can be seen to be in line with the General Data Protection Regulation (GDPR), which requires data controllers as well as data processors to ensure by design that their processing operations meet the criteria of the Regulation’s data protection principles. The AEPD stresses that by incorporating Privacy by Design into its practices, there will be an improvement in both compliance and trust, which contributes to the sensitive equilibrium of ensuring both the sensitive issues of Privacy and Security.
+
+\section{Privacy-Enhancing Technique}
+PETs contribute to the protection of personal data throughout its lifecycle \cite{aunon2024evaluation}. This section discusses how PETs support secure and privacy-preserving data processing in practice \\
+\subsection{How these PETs are used }
+% \begin{itemize}
+%     \item [$\bullet$]Differential Privacy — used by large-scale telemetry systems to collect usage metrics with strong individual guarantees (industry examples include major OS and browser vendors for aggregate telemetry). Statistical agencies have also started using DP for public data releases.
+%     \item [$\bullet$] Federated Learning — deployed by mobile and edge applications (keyboard suggestions, voice models) where user data remains on devices and only model updates are shared. Health networks use FL to jointly train models across hospitals without centralizing patient records.
+%     \item [$\bullet$] Homomorphic Encryption \& SMPC — adopted in finance and healthcare pilots: banks can jointly compute fraud detection models or AML scores without revealing proprietary customer data; research consortia perform privacy-preserving analytics on genomic/clinical data.
+%     \item [$\bullet$] Zero-Knowledge Proofs — used in privacy-preserving cryptocurrencies and in selective disclosure identity systems where users prove attributes without exposing credentials.
+%     \item [$\bullet$] TEEs — used by cloud providers and application vendors to run confidential code (e.g., key management, secure enclaves for data processing).
+%     \item [$\bullet$] Tor / Mixnets — used by journalists, activists, and privacy-conscious users to protect location and communication metadata from surveillance.
+%     \item [$\bullet$] Anonymization \& Pseudonymization — commonly used to publish sanitized datasets for research, or to store payment/card references in systems subject to PCI/medical systems subject to regulatory constraints.
+% \end{itemize}
+\noindent Dfferential Privacy is applied when an organisation needs to release statistical information while limiting the privacy risk to individuals. Typical examples include statistical agencies publishing population data, technology companies collecting telemetry from user devices, or healthcare providers analyzing sensitive medical records. Differential Privacy adds controlled noise into query results, ensuring that the inclusion or deletion of a single item has no meaningful effect on outputs. The main challenge in DP deployments is the balance between accuracy and privacy, especially when datasets are small.\cite{marshall2025dpclinicalcoding}. Formally, A randomized machanism algorithm $A$ is said to provide $(\epsilon,\delta)$-DP, for any two adjacent datasets $D$ and $D'$ that differ by one record, and for any measurable output set $S$, the following condition holds:
+\[
+\Pr[A(D) \in S] \le e^{\epsilon} \cdot \Pr[A(D') \in S] + \delta.
+\]
+When $\delta = 0$, the mechanism satisfies pure 
+$\epsilon$-DP. The parameter 
+$\epsilon$, is the privacy budget. Smaller 
+$\epsilon$, values make the output distributions of neighboring datasets more similar, which gives stronger privacy. Larger $\epsilon$, values add less noise and improve accuracy. Organizations choose 
+$\epsilon$, according to legal requirements, analytical needs, and acceptable risk \cite{marshall2025dpclinicalcoding}. To put these guarantees into action, certain noise-adding methods are required. In practice, the Laplace and Gaussian mechanisms are the standard reference mechanisms for implementing differential privacy because they provide precise constraints on privacy loss while remaining compatible with common analytical tasks. Both approaches adjust noise based on the query's sensitivity and privacy budget \cite{marshall2025dpclinicalcoding}. \\
+
+ The Laplace mechanism is applied to numerical queries with sensitivity $\Delta f$ defined as the maximum change in the query output caused by modifying a single record. There is  relationship between accuracy and $\epsilon$. 
+The mechanism releases $A(D) = f(D) + \eta$, where $\eta \sim \text{Laplace Distribution}(0, b)$, with scale parameter
+$b = \Delta f / \epsilon$. So the added noise magnitude scales inversely with $\epsilon$. If $\Delta f = 1$ then $b = 1/\epsilon$. In that case:
+\begin{itemize}
+    \item $\epsilon = 0.1$ implies $b = 10$, so expected absolute noise is on the order of 10 units.
+    \item $\epsilon = 1$ implies $b = 1$, so expected absolute noise is on the order of 1 unit.
+    \item $\epsilon = 5$ implies $b = 0.2$, so expected absolute noise is on the order of 0.2 units.
+\end{itemize}
+This shows clearly the small $\epsilon$ strongly protects privacy but can render noisy outputs less accurate. DP deployments in rare-event or small datasets often fail to maintain analytical utility, especially in detection tasks such as anomaly tracking or cyber-incident identification. \cite{marshall2025dpclinicalcoding} \\
+The Gaussian mechanism implements $(\epsilon,\delta)$-DP, Gaussian noise $N(0,\sigma^{2})$ is added via the Gaussian mechanism, with $\sigma$ selected in relation to $\Delta f$2, $\epsilon$, and $\delta$. For normal parameter ranges, 
+$\sigma \ge \sqrt{2 \ln(1.25/\delta)} \cdot (\Delta f / \epsilon)$ 
+is a popular suitable choice for $\sigma$ \cite{dwork2014differentialprivacy}. This relation shows that smaller $\epsilon$ raises $\sigma$ to increase. A larger $\sigma$ adds more noise and reduces accuracy for fixed $\Delta f$2 and $\delta$ For example:
+
+\begin{itemize}
+\item 
+$\epsilon$
+= 0.1
+ produces a large 
+$\sigma$ and high noise.
+\item 
+$\epsilon$
+=
+1
+produces a moderate 
+$\sigma$.
+\item 
+$\epsilon$=5 produces a small 
+$\sigma$ and more accurate results.
+\end{itemize}
+
+
+Both mechanisms show the same pattern. Lower 
+$\epsilon$ gives stronger privacy but reduces utility. When multiple outputs are released, privacy costs accumulate across queries. Organisations must therefore budget 
+$\epsilon$ and select appropriate noise levels based on regulatory duties, analytical needs, and acceptable risk. While differential privacy reduces what can be learned from publicly available results, it does not secure raw data during computation, which requires use of cryptographic approaches such as Homomorphic Encryption. \\
+
+\noindent Homomorphic encryption permits arithmetic on ciphertexts so that a party can compute on encrypted data without learning the plaintext. In ring based constructions a ciphertext is commonly represented as a pair $c=(c_{0},c_{1})$ in the polynomial ring $R_{q}=\mathbb{Z}_{q}[X]/(\Phi(X))$, and decryption recovers the plaintext by evaluating $m \approx (c_{0} + c_{1}\cdot s)\bmod q$, where $s$ denotes the secret key and the expression contains an additive noise term $e$. The noise term grows with operations, increasing approximately additively under ciphertext addition and multiplicatively under ciphertext multiplication, and if the noise approaches the modulus the ciphertext becomes undecryptable. Approximate schemes such as CKKS control noise via rescaling and modulus switching so that approximate real arithmetic remains correct, and bootstrapping can be used to refresh ciphertexts and reset the noise at the cost of extra computation. The choice of ring degree, ciphertext modulus and scaling factor determines the correctness margin and performance profile, and recent implementation surveys document concrete parameter choices and the computational trade offs that arise when deploying HE in analytics pipelines. HE also does not support joint computation when several parties hold data sources\cite{Iezzi2020}\\
+
+\noindent Secure multi party computation enables a set of parties to compute a joint function of their private inputs while revealing nothing beyond the agreed output. A standard secret sharing based approach uses Shamir sharing over a finite field, where a secret $s$ is encoded as the constant term of a random polynomial $f(x)$ of degree $t$ and party $i$ holds the share $s_{i}=f(i)$. Any subset of $t+1$ parties can reconstruct $s$ by Lagrange interpolation so that 
+$s=\sum_{j\in J}\lambda_{j}s_{j}$ 
+for the interpolation coefficients $\lambda_{j}$. Additive operations on shared values are local since shares add linearly, while multiplication increases the sharing polynomial degree and therefore, requires a degree reduction step or re sharing to restore the tolerated threshold. Practical MPC systems therefore rely on preprocessed correlated randomness, commonly called Beaver triples, where parties hold shared values of random $u$, $v$ and $w=uv$. During online multiplication parties open masked values of their differences and combine local terms with the triple to obtain a correct sharing of the product without leaking private inputs. Contemporary work emphasizes concrete protocols and performance engineering, showing that secret sharing and Beaver style preprocessing yield efficient online phases, while communication and synchronization costs remain the primary scalability factors for real time or large scale deployments. \cite{feng2022concrete,zhou2021smpcml,ieee2842}\\
+
+\noindent %Zero knowledge proofs allow a prover to convince a verifier that a statement holds without revealing any witness information beyond the truth of the statement. A pedagogical example is the Schnorr identification protocol in a cyclic group of prime order $q$ with generator $g$. The prover who knows secret $x$ publishes $y=g^{x}$ and then computes a commitment $t=g^{r}$ for random $r$. After receiving a challenge $c$ the prover responds with $s=r+cx$ and the verifier checks 
+%$g^{s}\overset{?}{=}t\cdot y^{c}$. 
+%The equality holds because $g^{r+cx} = g^{r}(g^{x})^{c}$. The %transcript can be simulated without knowledge of $x$, which yields the zero knowledge property. Modern succinct proof systems extend these ideas by encoding statements as polynomial or circuit satisfiability problems and producing short proofs that verify in time independent of the original computation size. Recent surveys and framework evaluations document advances that reduce prover costs, remove or weaken trusted setup assumptions and broaden applicability to verifiable machine learning and large scale blockchain use cases%%. \cite{zkp2024survey,jisa2023zkp}%%\\
+
+\noindent FL has seen successful applications of this approach where centralization is not possible or inefficient due to regulations, such as hospitals that share data on medical imaging, smartphone manufacturers that use FL to train models for language prediction, and industrial Internet of Things systems that seek to keep data local to the edge. FL can instead be privatized using techniques such as DP, SMPC, or TEEs, but privacy-preserving FL systems are challenging, as local training processes must be synchronized to avoid leakage of local gradients\cite{bai2024membership}\cite{nemecek2025exploring}.\\
+
+\subsection{PETs Tradeoff}
+\noindent Although PETs provide strong privacy protections for personal data, but each technique introduces trade offs that organizations must carefully assess. These trade offs include performance, accuracy, assumptions regarding the underlying system, and the integration process, which are utilized to define the feasibility of implementing PET. As a result, privacy protection cannot be considered as a purely technical choice, but as a contextual decision that depends on operational needs and risk tolerance.\cite{aunon2024evaluation}\cite{achuthan2024advancing}.
+\noindent However, the design of DP can itself come at a cost of analytical granularity, since applying two-tier DP can restrict an organisation's ability to identify certain patterns or outliers in their data, or to detect low probability indicators of breaches in different domains, such as in healthcare, mobility analysis, or fraud detection, since two-tier DP imposes a privacy burden on highly sensitive or granular data.\\
+
+\noindent Similar challanges arise with cryptographic PETs. The confidentiality of homomorphic encryption is provided by the fact that it is hard to have any third-party view the data sent by the users between or outside the application. While these measures make it difficult for security teams to monitor data that could pose a threat, E2EE-based messaging services cannot view the contents of messages that could potentially contain phishing URLs or harmful data that trigger security incidents\cite{abelson2015keys}. Theoretically, homomorphic encryption can be used as an alternative, where it is possible to perform operations with encrypted data. Practically, though, even the known implementations are highly computationally expensive and therefore not real-time security-analysis friendly\cite{acar2018homomorphic}. Better PET-based privacy may therefore be associated with a lesser institutional security control.\\
+
+\noindent PETS can provide anonymity or unlinkability such as the Tor network or mix networks, further complicating this. These allow privacy to their users by covering identity, location or metadata. But malicious intent is also applied by cybercrooks in anonymity to create dark markets, to hide command-and-control servers, or get around the police\cite{moore2001dos}. It is this two-fold power of anonymous supporting PETs that indicates it might be both empowering and enabling the weaker side of a relationship as well as facilitative to criminal acts. Thus, the potential for the contradiction of the needs of accountability, audit trail, or legal traceback is high when such Privacy-Enhancing Technology is used with the regulated industries.\\
+
+\noindent SMPC protocols often require multiple phases of interaction and complicated cryptographic processes, resulting in a significant computational and transmission overhead . This may reduce its real time performance or performance in limited resource settings \cite{ieee2842}. Moreover, the SMPC protocols typically are based on the assumptions regarding the behavior of the participants, including the existence of an honest majority, which is hard to assure in a different organisational context. The complexity of implementation and the issues of equity and delivery of the output also make it harder to deploy \cite{zhou2021smpcml}. Consequently, SMPC is most applicable in well-scoped applications where performance and total cost of operation can be justified, even though SMPC would significantly reduce the information leaks.\\
+
+\noindent Deployment of PETs involves some governance and compliance trade-offs. For example, techniques such as federated learning avoid centralization of raw data by supporting distributed training and, thus, are aligned with the principles of privacy by design; however, such techniques also reduce the visibility of security teams into global datasets. This affects the forensic investigations and cross-system correlation, especially in incident responses\cite{enisa2021privacyengineering}. Moreover, regulatory frameworks such as GDPR promotes the data minimization and anonymization, while cybersecurity standards often demands the logs and traceability. Hence, strengthening privacy based on PETs may reduce an organization's capability to investigate incidents, attribute malicious behavior, or meet audit requirements \cite{enisa2021privacyengineering}. Effective governance must reconcile such competing demands. \\
+\section{ISO/IEC Standards}
+ Managing information and privacy is like building a secure, trustworthy home for data. Organizations like the International Organization for Standardization (ISO) provide the blueprints for this proven, structured methods that help companies protect the information they hold. The main set of blueprints is known as the ISO/IEC 27000 family. It guides a company in building what's called an Information Security Management System (ISMS). In simple terms, an ISMS is a company's promise to consistently keep data safe, secure, and available, making sure it isn't mishandled, lost, or stolen.\\
+
+ \noindent Building on that foundation, ISO/IEC 27001 lays out the specific requirements for that security system. Then, ISO/IEC 27701 extends the blueprint to add special rooms and locks for privacy. It creates a Privacy Information Management System (PIMS) \cite{iso2019privacy}, helping organizations not just secure data, but also manage it respectfully and in line with your privacy rights. Why does this matter? For any company that interact with, using these frameworks means they are proactively identifying and addressing privacy risks. It’s how a company builds the muscles to comply with major regulations like the GDPR and can be transparent about how it uses your data.\\
+
+\section{ENISA Guidance}
+ \noindent One of the main organizations that promotes cyber security and privacy resilience for the benefit of Europe is the European Union Agency for Cybersecurity (ENISA). According to the organization’s guidelines by ENISA (2021) \cite{enisa2021pets}, privacy engineering, risk management, and Personal Electronic Technology (PETs) should be strategically implemented for a harmonious coexistence of privacy and cyber security. This organization considers the implementation of Personal Electronic Technology as a key issue for digital trust.\\
+
+ \noindent Recommendations by ENISA also include new technology domains like artificial intelligence, IoT, and cloud computing, where privacy threats are magnified by the volume and complexity of the processed information. Through its research activities and publications, it promotes the adoption of privacy-respecting data management practices by the public and private sectors and facilitates user empowerment by means of true informed consent. Further collaborative efforts with the Member States and experts by the organization involve creating best practices on assessing privacy risks with a view to a common European approach to privacy protection.\\
+
+ \noindent In short, ENISA takes on the role of a bridge between regulation, policy, and technology by making sure that privacy by design and other standards such as ISO/IEC 27701 are properly implemented. Indeed, by incorporating the advice of ENICA’s organization, one can build a level of cyber threat resilience while respecting the fundamental right to privacy.

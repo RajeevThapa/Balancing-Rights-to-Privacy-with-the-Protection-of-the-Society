@@ -1,0 +1,127 @@
+%  A simple AAU report template.
+%  2015-05-08 v. 1.2.0
+%  Copyright 2010-2015 by Jesper Kjær Nielsen <jkn@es.aau.dk>
+%  Modified 2023 by Andreas Højrup
+%
+%  This is free software: you can redistribute it and/or modify
+%  it under the terms of the GNU General Public License as published by
+%  the Free Software Foundation, either version 3 of the License, or
+%  (at your option) any later version.
+%
+%  This is distributed in the hope that it will be useful,
+%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%  GNU General Public License for more details.
+%
+%  You can find the GNU General Public License at <http://www.gnu.org/licenses/>.
+%
+\input{setup/preamble.tex}% package inclusion and set up of the document
+ 
+\input{setup/macros.tex}% my new macros
+
+% Add the custom lstlisting style for code blocks
+% \lstdefinestyle{myStyle}{
+%     % backgroundcolor=\color{lightgray},  % background color for the code block
+%     basicstyle=\ttfamily\small,          % font style and size
+%     breaklines=true,                     % Enable automatic line wrapping
+%     frame=none,                          % No outer frame
+%     keywordstyle=\color{blue},            % Keywords color
+%     commentstyle=\color{green},          % Comments color
+%     stringstyle=\color{red},             % Strings color
+%     columns=flexible,                    % Make the columns flexible
+%     showstringspaces=false,              % Hide spaces in strings
+%     xleftmargin=\parindent,              % Align code with the left margin
+%     xrightmargin=\parindent,             % Align code with the right margin
+%     postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}  % Line break indicator
+% }
+\begin{document}
+
+%TODO list -> Remember to un-comment in preamble
+%\listoftodos[TODOs]
+
+%frontmatter
+\pagestyle{empty} %disable headers and footers
+\pagenumbering{roman} %use roman page numbering in the frontmatter
+\input{sections/front_pages/frontpage}
+\input{sections/front_pages/titlepages}
+\cleardoublepage
+\pdfbookmark[0]{Contents}{label:contents}
+\pagestyle{fancy} %enable headers and footers again
+\fancyhf{}
+\fancyfoot[C]{\thepage} % Center the page number in the footer
+
+\tableofcontents
+\input{sections/front_pages/abbreviations}
+
+
+\cleardoublepage
+%mainmatter
+\pagenumbering{arabic} %use arabic page numbering in the mainmatter
+
+
+%Introduction
+\input{sections/Introduction}
+% Problem statement 
+% Scope of study
+% Significance of study
+
+% Literature Review:
+\newpage
+\input{sections/Literature_review}
+
+\newpage
+\input {sections/Methodology}
+
+\newpage
+\input{sections/Threat_landscape_that_impacts_privacy}
+
+\newpage
+\input{sections/Legal_&_regulatory_analysis}
+
+\newpage
+\input{sections/Technical_solutions_and_standards}
+
+\newpage
+\input{sections/Communication_governance_and_trust}
+
+\newpage
+\input{sections/Case_studies_and_evaluation}
+
+\newpage
+\input{sections/Recommendations}
+
+\newpage
+\input{sections/Conclusion}
+
+\newpage
+\input{sections/Use_of_Generative_AI}
+% Move diagram to end of section
+
+
+%Implementation \& Design
+% Simulation, emulation, testbeds
+% our setup
+
+
+%Implementation
+% \input{sections/Implementation}
+
+% % Attack & Defense
+% \input{sections/attack_defense}
+
+% \input{sections/futureWorks}
+
+%Conclusion
+% \input{sections/conclusion.tex}
+
+%Bibliography
+\printbibliography[heading=bibintoc]
+\label{bib:mybiblio}
+
+%Appendix
+\cleardoublepage
+\pagenumbering{alph} % If appendix is more than 27 pages use {roman}
+\appendix
+%\input{sections/appendix.tex}
+
+\end{document}

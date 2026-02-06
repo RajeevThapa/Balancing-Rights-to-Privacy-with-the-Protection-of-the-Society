@@ -1,0 +1,72 @@
+\chapter{Legal and Regulatory Analysis} \label{cha:Legal & regulatory analysis}
+
+% Please, Include the following:
+% \\\\
+% GDPR mechanisms (data subject rights, DPIA, PbD), NIS2 obligations and interplay with privacy law
+This chapter examines how European legislation balances cybersecurity requirements with personal data protection. Building on the literature review, it investigates how the GDPR and the NIS2 Directive are implemented in practice when enterprises gather and analyze data for security reasons. The emphasis on examining how legal duties influence real cybersecurity decisions, risk management, and incident response. 
+
+\section{The General Data Protection Regulation (GDPR)}
+GDPR determines how personal
+data can be used by organizations and companies
+and how it can be 
+collected, structured, organized, erased\cite{rajamaki2024implications}.It consists of rules for the processing of personal data and shows privacy as a fundamental right. This regulation is built upon several core principles, such as lawfulness, fairness and transparency, data minimization, and purpose limitation\cite{10.1093/ijlit/eaaa021}, which directly impact how cybersecurity measures are implemented. 
+\subsection{Fundamental concepts in GDPR}
+\subsubsection{Legal Bases for Processing}
+If a person or an organization wants to process individuals data, they need a strong purpose under GDPR. For this, Article 6(1) of GDPR provides six legal bases: consent (the person has clearly agreed to you processing their data), contract (processing is necessary to fulfill a contract with the person), legal obligation (you must process the data to comply with the law), vital interests (processing is necessary to protect someone's life), public task (processing is needed to perform a task in the public interest, and legitimate interests (processing is necessary for your legitimate interests unless overridden by the person's rights)\cite{gil2019understanding}. So, anyone who wants to collect and process data must identify which basis applies to them, as it affects people's rights. For the purpose of cybersecurity, the most relevant legal bases are consent, contractual necessity, legal obligation, and legitimate interests. The basis of legitimate interests, which lies under Article 6(1)(f) is  important for cybersecurity, as it allows organizations to process data when necessary for their legitimate interests. This enables organizations to implement security monitoring, threat detection, and incident response measures without requiring them to obtain consent for every security operation they perform.
+
+\subsubsection{Rights of Data Subjects}
+GDPR gives each individual strong control over their personal data or information such as right to access, rectification, forget, restriction of processing, portability, and objection to processing\cite{wolters2018control}. For instance, If a company holds a persons data, then that person have the right to see what they have, fix any mistakes, ask them to delete it, limit how they use it, or take their data elsewhere. Organizations must respond to these requests quickly, usually within one months time which ensures that the owner has full control over their personal data. 
+
+\subsubsection{Data Protection Impact Assessments (DPIAs)}
+A DPIA (Data Protection Impact Assessment) is a risk assessment process required under Article 35 of the GDPR when data processing is likely to result in high risks to the rights and freedom of an individual. Organizations must conduct a DPIA in several situations, for instance, when using new technologies, processing sensitive data at large scale. Mostly, cybersecurity monitoring systems do DPIAs because they involve systematic monitoring and processing of sensitive data.Therefore, the DPIA should identify potential risks, assess how severe they are, and suggest specific measures to mitigate them\cite{horak2019gdpr}. So, it helps organizations to consider privacy before implementing security
+measures.
+
+\section{The NIS2 Directive}
+NIS2 sets out a cybersecurity regulatory framework,
+requiring the member states of the European Union to 
+strengthen cybersecurity capabilities and risk management measures, together with rules on
+cooperation and information sharing\cite{10.1093/cybsec/tyad009}. NIS2
+aims to achieve a high common level of
+cybersecurity across the member states. It helps organizations protect their systems and report serious cyber incidents.
+NIS2 distinguishes between essential entities (such as energy, transport, banking, health, and digital infrastructure providers) and important entities (including postal services, waste management, and digital providers)\cite{kianpour2025digital}. Moreover, the directive applies to medium and large entities \cite{vandezande2024cybersecurity} within these sectors, expanding its coverage.
+\subsection{NIS2 Obligations}
+\subsubsection{Cybersecurity Risk Management Requirements}
+The Article 21 of NIS2 has  cybersecurity risk management measures, including risk analysis policies and information security, incident handling,  continuity of business and crisis management, supply chain security, security in network and information systems acquisition, development and maintenance, and policies and procedures to assess the effectiveness of cybersecurity measures\cite{ferguson2023outcome}. These requirements involve the processing of personal data, which includes monitoring employee activity, access logs, and behavioral analysis, creating direct interfaces with GDPR requirements. 
+
+\subsubsection{Incident Reporting Obligations}
+
+ In NIS2, a tiered incident reporting framework has been established. If an entity has a security breach, it must provide an early warning within 24 hours after becoming aware of a significant incident, which is then followed by a notification within 72, hours and a final report  presented within one month\cite{schmitz2023defining}. This incident reporting requires organizations to collect and process information about security incidents, which often includes personal data about affected individuals and internal personnel involved in the response. 
+
+
+\section{The Interplay Between GDPR and NIS2 }
+The GDPR and NIS2 Directive both have different responsibilities, but to understand how these frameworks interact with each other is crucial for organizations in order to maintain privacy and security. GDPR  governs the lawful processing of personal data, while NIS2 focuses on ensuring network and information security across critical sectors\cite{kianpour2025digital}. Their objectives  complement each other  rather than oppose, but operation of both these  often requires  coordination.
+
+\subsubsection{Complementary Objectives}
+ The GDPR and the NIS2 Directive goal is to enhance trust and accountability within the European digital ecosystem, although they do so  differently but they also complement each other. The GDPR's main focus is on protecting the fundamental rights and freedoms of individuals, particularly the right to privacy and the protection of personal data, by establishing comprehensive rules in a fair and transparent way. It ensures that data subjects have complete control over their data, which helps to strengthen privacy, making it a fundamental right that is preserved in EU law \cite{kuner2020eu}. However, the NIS2 Directive focuses cybersecurity from a societal point by ensuring the availability, and continuity of essential and important services, including sectors such as energy, healthcare, transportation and digital infrastructure \cite{kianpour2025digital}. In practice, these objectives do not  contradict each other, but instead are working together to provide strong cybersecurity as required by NIS2, which directly supports GDPR helping to reduce unauthorized access to personal data, and other forms of data compromise or breaches. Similarly, the GDPR’s principles of data minimization, privacy by design, and purpose limitation help in stronger cybersecurity by ensuring that only the necessary data are collected, processed and retained, reducing the attack surface available to malicious actors. This interdependence on one another shows how privacy and security, can go hand on hand.  
+
+\subsubsection{Overlapping Reporting Duties }
+When a security incident consists of personal data, organizations may face overlapping reporting problem that arise under both the GDPR and the NIS2 Directive. The NIS2 Directive expects entities to issue an early warning within 24 hours of becoming aware of a significant security breach incident, which is then followed by a detailed notification within 72 hours, while the GDPR instruct that personal data breaches should be reported to the relevant Data Protection Authority within 72 hours of discovery.  These obligations serve different recipients for instance, in the NIS2 the report is directed to national cybersecurity authorities, and in the GDPR notification is sent to data protection regulators. Therefore, organizations must establish a combined incident response and reporting mechanisms that helps in adjusting timelines, ensure consistent information disclosure, and prevent duplication of reports. Primarily, the Article 96 of NIS2  clarifies that the directive complements the GDPR rather than it replace, focusing that processing of any kind of personal data taken to meet NIS2 obligations must fully follow the GDPR principles. 
+
+\section{Real-World Example: Balancing Security and Privacy}
+
+A perfect example of the interaction between GDPR and NIS2 would be a hospital, as it is the provider of essential healthcare services and it contains sensitive data. The hospital is subject to NIS2’s cybersecurity obligations and GDPR which is concerned with protecting personal data of a patient. In daily operations, if we try to implement strong security controls, it often arises conflicts with the obligation to minimize processing of personal data. For example, NIS2 requires continuous  monitoring of network, centralized collection of logs, and detection of threats. During these operations systems frequently collect data such as patient id's, diagnostic information's, and  details related to treatment, which poses challenges to GDPR’s principles. To mitigate these challenges, the hospital can implement measures such as  strict access controls, pseudonymization of logs, process to review logs to ensure that only authorized personnel can re-identify data when required.
+\\
+\noindent Another challenge arises during access control. NIS2 requires organizations to use strong authentication methods, such as MFA and zero-trust principles, which are essential for preventing unauthorized access to sensitive systems. In the hospital setting, however, doctors and other staffs report that use of these security mechanisms slowed down access to  records of patient which hinder emergency care. Thus, requiring strong security  risked  patient care, which is protected as a vital interest under GDPR. To balance these issues, the hospital can adopt faster authentication technologies such as FIDO2, emergency bypass protocols,  context-aware access rules.
+\\
+\noindent Incident reporting obligations also shows operational tensions. In NIS2, the hospital must report cyber incidents within 24 hours, while GDPR requires reporting of personal data breaches within 72 hours once it is confirmed that personal data is at risk. For example, if there is a ransomware attack in the hospital, the hospital is forced to issue an early NIS2 warning before knowing whether patient data had been compromised, while in GDPR  further assessment is required to confirm the  impact in privacy. To solve this issue organization should develop a unified incident response framework, use pre-drafted templates, and there should be one single point where we can contact  which ensures consistent communication with authorities and reduce the burden of duplicate reporting.
+\\
+\noindent Figure 5.1 below shows the complete flow of information within a hospital environment,highlighting the three main conflicting points where GDPR privacy requirements and NIS2 security obligations intersect, along with their respective mitigation strategies.
+\begin{figure} [H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{figures/Blank diagram.png}
+        \label{fig:Overview}
+    \end{figure}
+
+    \begin{figure} [H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{figures/IssueSol.png}
+        \caption{Conflict Points and Mitigation Strategies}
+        \label{fig:Overview}
+    \end{figure}
+
+\noindent In general, this real-world example of hospital setting shows how organizations can balance privacy and security. Although these two are competing with each other, they can also work together. The way they are operated can create tensions, however we can resolve them through technical, legal, and procedural solutions.
