@@ -15,6 +15,7 @@ Academic Year: 2025
 - Newton Sharma
 - Rajeev Thapa
 
+---
 
 ## Overview
 
@@ -191,3 +192,5 @@ This repository is intended for **academic and educational purposes**.
 - Not legal advice
 - Not an official policy document
 - Cite the compiled report when referencing this work
+- This project is licensed under the MIT License and You are free to read, reuse, and build upon this work with appropriate attribution.
+
